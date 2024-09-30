@@ -17,17 +17,8 @@ class Transformer
         // </linkName></webLink>.
         // And then the output should become
         // <a rel="nofollow" href="https://www.example.com">gjeldende forskrift og tilhørende retningslinjer.</a>
-        if ($nofollow) {
-            return preg_replace(
-                '/<webLink><href>(.*?)<\/href>(<linkName>(.*?)<\/linkName>)?<\/webLink>/',
-                '<a rel="nofollow" href="$1">$3</a>',
-                $data,
-            );
-        }
-        return preg_replace(
-            '/<webLink><href>(.*?)<\/href>(<linkName>(.*?)<\/linkName>)?<\/webLink>/',
-            '<a href="$1">$3</a>',
-            $data,
-        );
+        $regex = '<webLink><href>(.*?)<\/href>(<linkName>([\S\s]*?)<\/linkName>)?<\/webLink>';
+        $replace = $nofollow ? '<a rel="nofollow" href="$1">$3</a>' : '<a href="$1">$3</a>';
+        return preg_replace('/' . $regex . '/', $replace, $data);
     }
 }
