@@ -44,7 +44,7 @@ retningslinjer.</linkName></webLink>',
                 // @phpcs:ignore
                 '<a rel="nofollow" href="https://www.example.com">gjeldende forskrift og tilhørende 
 retningslinjer.</a>',
-            ]
+            ],
         ];
     }
 }
