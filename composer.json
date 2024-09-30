@@ -13,6 +13,12 @@
     "slevomat/coding-standard": "^8.15",
     "phpunit/phpunit": "^10.5"
   },
+  "scripts": {
+    "test": [
+      "@composer phpcs && phpunit"
+    ],
+    "phpcs": "vendor/bin/phpcs -p"
+  },
   "autoload": {
     "psr-4": {
       "Frontkom\\FsInfoTransformer\\": "src/"
