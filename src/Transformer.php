@@ -63,14 +63,25 @@ class Transformer
         return $data;
     }
 
-    public function replaceTags(string $data, $tag, $replacement_tag) : string
+    public function replaceTags(string $data, $tag, $replacement_tag, $keep_self_closing_tags = false) : string
     {
-        $data = str_replace('<' . $tag . '>', '<' . $replacement_tag . '>', $data);
-        $data = str_replace('</' . $tag . '>', '</' . $replacement_tag . '>', $data);
+        $data = str_replace(
+            ['<' . $tag . '>', '</' . $tag . '>'],
+            ['<' . $replacement_tag . '>', '</' . $replacement_tag . '>'],
+            $data
+        );
         // Also self closing tags in a couple of variations.
-        $self_closing_replacement = '<' . $replacement_tag . ' />';
-        $data = str_replace('<' . $tag . ' />', $self_closing_replacement, $data);
-        $data = str_replace('<' . $tag . '/>', $self_closing_replacement, $data);
+        $self_closing_replacement = '';
+        if ($keep_self_closing_tags) {
+            $self_closing_replacement = '<' . $replacement_tag . '>';
+        }
+        $data = str_replace(
+            [
+            '<' . $tag . ' />',
+            '<' . $tag . '/>'],
+            [$self_closing_replacement, $self_closing_replacement],
+            $data
+        );
         return $data;
     }
 
