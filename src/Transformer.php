@@ -9,8 +9,24 @@ class Transformer
         $data = $this->processWeblinks($data);
         $data = $this->processBulletedLists($data);
         $data = $this->replaceTags($data, 'bold', 'strong');
+        $data = $this->replaceTags($data, 'italic', 'em');
+        $data = $this->replaceEmptyParagraphs($data);
         $data = $this->processNumberedLists($data);
         return $data;
+    }
+
+    public function replaceEmptyParagraphs(string $data) : string
+    {
+        // From time to time we see these kinds of things:
+        // <p> </p> or <p></p> or <p />.
+        // We should replace them with nothing.
+        $variations_to_replace = [
+            '<p> </p>',
+            '<p></p>',
+            '<p />',
+            '<p/>',
+        ];
+        return str_replace($variations_to_replace, '', $data);
     }
 
     public function processBulletedLists(string $data) : string
