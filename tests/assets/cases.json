@@ -2,5 +2,9 @@
   {
     "input": "1 2 3 4 5",
     "expected": "1 2 3 4 5"
+  },
+  {
+    "input": "Vi viser til <webLink><href>https://www.example.com</href><linkName>gjeldende forskrift og tilhørende retningslinjer.</linkName></webLink>",
+    "expected": "Vi viser til <a rel=\"nofollow\" href=\"https://www.example.com\">gjeldende forskrift og tilhørende retningslinjer.</a>"
   }
 ]
