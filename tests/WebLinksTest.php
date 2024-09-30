@@ -25,15 +25,18 @@ class WebLinksTest extends TestCase
     {
         return [
             [
+                // @phpcs:ignore
                 '<webLink><href>https://www.example.com</href><linkName>gjeldende forskrift og tilhørende retningslinjer.</linkName></webLink>',
+                // @phpcs:ignore
                 '<a rel="nofollow" href="https://www.example.com">gjeldende forskrift og tilhørende retningslinjer.</a>',
-                true
+                true,
             ],
             [
+                // @phpcs:ignore
                 '<webLink><href>https://www.example.com</href><linkName>gjeldende forskrift og tilhørende retningslinjer.</linkName></webLink>',
                 '<a href="https://www.example.com">gjeldende forskrift og tilhørende retningslinjer.</a>',
-                false
-            ]
+                false,
+            ],
         ];
     }
 }
