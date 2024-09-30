@@ -1,0 +1,25 @@
+{
+  "name": "frontkom/fs-info-transformer",
+  "description": "Transform data coming from FS to regular and usable HTML",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Frontkom",
+      "email": "hello@frontkom.com"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Frontkom\\FsInfoTransformer": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Frontkom\\Tests\\": "tests/"
+    }
+  }
+}
