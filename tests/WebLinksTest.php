@@ -14,7 +14,7 @@ class WebLinksTest extends TestCase
      *
      * @dataProvider weblinksProvider
      */
-    public function testWeblinks($input, $expected, $nofollow)
+    public function testWeblinks($input, $expected, $nofollow = true)
     {
         $transformer = new Transformer();
         $result = $transformer->processWeblinks($input, $nofollow);
@@ -29,13 +29,21 @@ class WebLinksTest extends TestCase
                 '<webLink><href>https://www.example.com</href><linkName>gjeldende forskrift og tilhørende retningslinjer.</linkName></webLink>',
                 // @phpcs:ignore
                 '<a rel="nofollow" href="https://www.example.com">gjeldende forskrift og tilhørende retningslinjer.</a>',
-                true,
             ],
             [
                 // @phpcs:ignore
                 '<webLink><href>https://www.example.com</href><linkName>gjeldende forskrift og tilhørende retningslinjer.</linkName></webLink>',
                 '<a href="https://www.example.com">gjeldende forskrift og tilhørende retningslinjer.</a>',
                 false,
+            ],
+            [
+                // Now one where we have a line break in the middle of a tag.
+                // @phpcs:ignore
+                '<webLink><href>https://www.example.com</href><linkName>gjeldende forskrift og tilhørende 
+retningslinjer.</linkName></webLink>',
+                // @phpcs:ignore
+                '<a rel="nofollow" href="https://www.example.com">gjeldende forskrift og tilhørende 
+retningslinjer.</a>',
             ],
         ];
     }
