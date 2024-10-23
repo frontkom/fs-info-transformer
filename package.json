@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "description": "Just the assets from the PHP package so we can share them",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "tests/assets/cases.json"
+  ],
   "directories": {
     "test": "tests"
   },
