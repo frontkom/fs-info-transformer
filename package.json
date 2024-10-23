@@ -1,0 +1,27 @@
+{
+  "name": "@frontkom/fs-info-transformer-test-assets",
+  "version": "0.0.0",
+  "description": "Just the assets from the PHP package so we can share them",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontkom/fs-info-transformer.git"
+  },
+  "keywords": [
+    "fs",
+    "felles",
+    "studentsystem"
+  ],
+  "author": "Eirik. S Morland",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/frontkom/fs-info-transformer/issues"
+  },
+  "homepage": "https://github.com/frontkom/fs-info-transformer#readme"
+}
